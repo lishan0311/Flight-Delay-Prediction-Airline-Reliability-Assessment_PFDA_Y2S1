@@ -1,0 +1,64 @@
+Data Set Description (flights)
+
+1 CONTEXT:
+
+The U.S. Department of Transportation's (DOT) Bureau of Transportation Statistics tracks the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled, and diverted flights is published in DOT's monthly Air Travel Consumer Report and in this dataset of 2015 flight delays and cancellations.
+
+
+2 METADATA:
+
+    2.1 Flight Details
+
+	FLIGHT_NUMBER: A unique identifier for each flight.
+	TAIL_NUMBER: A unique identifier for each aircraft.
+	AIRLINE: A unique identifier for each airline (REFER TO IATA_AIRLINE_CODES for airline name).
+	ORIGIN_AIRPORT: Starting airport (REFER TO IATA_AIRPORT_CODES for airport name).
+	DESTINATION_AIRPORT: Destination airport (REFER TO IATA_AIRPORT_CODES for airport name).
+	DISTANCE: Distance between two airports.
+
+    2.2 Flight Cancellations and Diversions
+
+	DIVERTED: Aircraft landed on airport different from original destination airport (0: No; 1: Yes).
+	CANCELLED: Flight cancelled (0: not cancelled; 1: cancelled).
+	CANCELLATION_REASON: Reason for cancellation of flight. 
+		     	     (A: Airline/Carrier; 
+		      	      B: Weather; 
+  	              	      C: National Air System; 
+		      	      D: Security)
+
+    2.3 Flight Timings
+
+	SCHEDULED_TIME: Planned time required for each flight.
+	SCHEDULED_DEPARTURE: Planned departure time.
+	SCHEDULED_ARRIVAL: Planned arrival time.
+	WHEELS_ON: Time point that the aircraft's wheels touch the ground.
+	WHEELS_OFF: Time point that the aircraft's wheels leave the ground.
+	AIR_TIME: Time duration between WHEELS_OFF and WHEELS_ON time.
+	TAXI_IN: Time duration elapsed between WHEELS_ON and gate arrival at DESTINATION_AIRPORT.
+	TAXI_OUT: The time duration elapsed between departure from the ORIGIN_AIRPORT and WHEELS_OFF.
+	ARRIVAL_TIME: WHEELS_ON + TAXI_IN.
+	DEPARTURE_TIME: WHEEL_OFF - TAXI_OUT.
+	ELAPSED_TIME: AIR_TIME + TAXI_IN + TAXI_OUT
+
+    2.4 Flight Delays
+
+	ARRIVAL_DELAY: ARRIVAL_TIME - SCHEDULED_ARRIVAL
+	DEPARTURE_DELAY: Total delay on departure.
+	AIR_SYSTEM_DELAY: Delay caused by air system.
+	SECURITY_DELAY: Delay caused by security.
+	AIRLINE_DELAY: Delay caused by AIRLINE.
+	LATE_AIRCRAFT_DELAY: Delay caused by aircraft.
+	WEATHER_DELAY: Delay caused by weather.
+
+    2.5 Date and Time Information
+
+	YEAR: The year of the flight trip.
+	MONTH: The month of the flight trip.
+	DAY: The day of the flight trip.
+	DAY_OF_WEEK: Day of the week when the flight occurs.
+
+
+3 ADDITIONAL FILES:
+
+iata_airline_codes: Maps airline codes and names
+iata_airport_codes: Maps airport codes and names
